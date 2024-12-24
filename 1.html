@@ -9,17 +9,13 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
-            background-color: #080807;
+            background-color: #080807; /* Hintergrundfarbe geändert */
+            cursor: grab; /* Zeigt die offene Hand an (wie bei Google Maps oder Google Earth) */
         }
         canvas {
             width: 100%;
             height: 100%;
             display: block;
-        }
-
-        /* Der Cursor ist eine Hand, wenn der Benutzer das Modell drehen kann */
-        body {
-            cursor: grab; /* Zeigt die offene Hand an (wie bei Google Maps oder Google Earth) */
         }
 
         /* Während der Benutzer klickt, wird der Cursor zu einer geschlossenen Hand */
@@ -76,7 +72,7 @@
                 if (isMouseDown) {
                     const deltaMove = event.clientX - previousMousePosition.x;
                     currentRotation += deltaMove * 0.005; // Drehung basierend auf der Mausbewegung
-                     currentRotation = currentRotation % (2 * Math.PI); // Begrenze die Rotation auf 0 bis 360 Grad
+                    currentRotation = currentRotation % (2 * Math.PI); // Begrenze die Rotation auf 0 bis 360 Grad
                     model.rotation.y = currentRotation; // Drehung des 3D-Modells
 
                     previousMousePosition = { x: event.clientX, y: event.clientY };
